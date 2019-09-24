@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">示例中心</string>
+    <string name="app_desc">腾讯地图位置服务示例中心</string>
+
+    <string name="title_activity_basic_map">基本地图操作</string>
+    <string name="desc_activity_basic_map">基于地图的基本操作的应用</string>
+
+    <string name="title_activity_overlay">覆盖物</string>
+    <string name="desc_activity_overlay">在地图上的覆盖物</string>
+
+    <string name="title_activity_route_track">轨迹处理</string>
+    <string name="desc_activity_route_track">介绍路线和轨迹的操作</string>
+
+    <string name="title_activity_gesture">手势操作</string>
+    <string name="desc_activity_gesture">基于手势操作的常规处理</string>
+
+    <string name="title_activity_marker_cluster">点聚合</string>
+    <string name="desc_activity_marker_cluster">该示例主要解决用户在地图上绘制大量标注点时，出现相互压盖、底图加载的卡顿的问题。</string>
+
+    <string name="title_activity_find_poi">地图选点</string>
+    <string name="desc_activity_find_poi">检索屏幕中心点周边的特征POI，帮助用户快速、准确的确认位置。</string>
+
+    <string name="title_activity_map_center">设置地图中心点</string>
+    <string name="desc_activity_map_center">该示例展示了如何自定义设置地图的默认中心点。</string>
+
+    <string name="title_activity_limit_map_visible_bound">限制地图显示范围</string>
+    <string name="desc_activity_limit_map_visible_bound">该示例主要是用于向用户展示如何限制地图只显示固定区域。</string>
+
+    <string name="title_activity_invisible_poi">隐藏文字标注</string>
+    <string name="desc_activity_invisible_poi">该示例主要是用于向用户展示如何控制地图文字标注的隐藏与展示。</string>
+
+    <string name="title_activity_smooth_move">平滑移动</string>
+    <string name="desc_activity_smooth_move">该示例主要是向开发者展示如何在地图上实现轨迹点的平滑移动效果。</string>
+
+    <string name="title_activity_custom_gesture">自定义手势</string>
+    <string name="desc_activity_custom_gesture">该示例主要展示如何创建自定义的手势并操作地图。</string>
+
+
+    <string name="menu_title_add">添加</string>
+    <string name="menu_title_remove">移除</string>
+    <string name="menu_title_update">更新</string>
+    <string name="menu_title_limit">限制</string>
+    <string name="menu_title_fit_width">基于宽度限制</string>
+    <string name="menu_title_fit_height">基于高度限制</string>
+    <string name="menu_title_unlimit">解除</string>
+    <string name="menu_title_show">显示</string>
+    <string name="menu_title_hide">隐藏</string>
+    <string name="menu_title_stop">停止</string>
+    <string name="menu_title_start">开始</string>
+    <string name="menu_title_custom">自定义</string>
+    <string name="menu_title_massive">海量</string>
+    <string name="menu_title_general">普通</string>
+    <string name="menu_title_search">搜索</string>
+</resources>

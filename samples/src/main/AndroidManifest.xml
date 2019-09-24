@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.tencent.map.sdk.samples">
+
+    <application
+        android:allowBackup="true"
+        android:description="@string/app_desc"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+
+        <meta-data
+            android:name="TencentMapSDK"
+            android:value="${TencentMapSDK_KEY}" />
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:description="@string/app_desc">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".main.BasicMapActivity"
+            android:label="@string/title_activity_basic_map"
+            android:description="@string/desc_activity_basic_map"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="ORDER"
+                android:value="0" />
+        </activity>
+
+        <activity
+            android:name=".main.OverlayActivity"
+            android:label="@string/title_activity_overlay"
+            android:description="@string/desc_activity_overlay"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="ORDER"
+                android:value="1" />
+        </activity>
+
+        <activity
+            android:name=".main.TrackActivity"
+            android:label="@string/title_activity_route_track"
+            android:description="@string/desc_activity_route_track"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="ORDER"
+                android:value="2" />
+        </activity>
+
+
+        <activity
+            android:name=".main.GestureActivity"
+            android:enabled="false"
+            android:label="@string/title_activity_gesture"
+            android:description="@string/desc_activity_gesture"
+            android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:enabled="false"
+            android:name=".basic.MarkerClusterActivity"
+            android:label="@string/title_activity_marker_cluster"
+            android:description="@string/desc_activity_marker_cluster"
+            android:parentActivityName=".main.BasicMapActivity">
+            <meta-data
+                android:name="ORDER"
+                android:value="3" />
+        </activity>
+
+        <activity
+            android:name=".basic.LimitMapVisibleBoundActivity"
+            android:label="@string/title_activity_limit_map_visible_bound"
+            android:description="@string/desc_activity_limit_map_visible_bound"
+            android:parentActivityName=".main.BasicMapActivity">
+            <meta-data
+                android:name="ORDER"
+                android:value="2" />
+        </activity>
+
+        <activity
+            android:name=".basic.MapCenterActivity"
+            android:label="@string/title_activity_map_center"
+            android:description="@string/desc_activity_map_center"
+            android:parentActivityName=".main.BasicMapActivity">
+            <meta-data
+                android:name="ORDER"
+                android:value="1" />
+        </activity>
+
+        <activity
+            android:name=".basic.SearchPOIActivity"
+            android:label="@string/title_activity_find_poi"
+            android:description="@string/desc_activity_find_poi"
+            android:parentActivityName=".main.BasicMapActivity">
+            <meta-data
+                android:name="ORDER"
+                android:value="0" />
+        </activity>
+
+        <activity
+            android:name=".overlay.InvisiblePOIActivity"
+            android:label="@string/title_activity_invisible_poi"
+            android:description="@string/desc_activity_invisible_poi"
+            android:parentActivityName=".main.OverlayActivity" />
+
+        <activity
+            android:name=".gesture.CustomGestureActivity"
+            android:enabled="false"
+            android:label="@string/title_activity_custom_gesture"
+            android:description="@string/desc_activity_custom_gesture"
+            android:parentActivityName=".main.GestureActivity" />
+
+        <activity
+            android:name=".track.SmoothMoveActivity"
+            android:label="@string/title_activity_smooth_move"
+            android:description="@string/desc_activity_smooth_move"
+            android:parentActivityName=".main.TrackActivity" />
+    </application>
+
+    <!-- Android Q新增权限，允许应用在后台发起定位，如应用target为Q，请添加此权限 -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <!--如果设置了target >= 28 如果需要启动后台定位则必须声明这个权限-->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <!-- 通过GPS得到精确位置 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 通过网络得到粗略位置 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 访问网络，某些位置信息需要从网络服务器获取 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 访问WiFi状态，需要WiFi信息用于网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 修改WiFi状态，发起WiFi扫描, 需要WiFi信息用于网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- 访问网络状态, 检测网络的可用性，需要网络运营商相关信息用于网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 访问网络的变化, 需要某些信息用于网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <!-- 访问手机当前状态, 需要某些信息用于网络定位 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+</manifest>
