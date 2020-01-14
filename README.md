@@ -10,7 +10,7 @@
     android:value="您的 key" />
 ```
 
-也可以使用工程里的方式在本地工程中创建 local.properties 中添加：
+也可以使用工程里的方式在本地工程中创建 local.properties 并添加：
 
 ```
 mapsdk.key=您的 key
