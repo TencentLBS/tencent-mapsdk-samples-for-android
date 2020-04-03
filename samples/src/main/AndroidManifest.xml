@@ -13,9 +13,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
 
-        <!--<meta-data-->
-            <!--android:name="TencentMapSDK"-->
-            <!--android:value="${TencentMapSDK_KEY}" />-->
+        <meta-data
+            android:name="TencentMapSDK"
+            android:value="${TencentMapSDK_KEY}" />
 
         <activity
             android:name=".MainActivity"
