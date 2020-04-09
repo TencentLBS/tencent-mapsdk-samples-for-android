@@ -14,6 +14,10 @@
     <string name="title_activity_gesture">手势操作</string>
     <string name="desc_activity_gesture">基于手势操作的常规处理</string>
 
+    <string name="title_activity_show_markers">适配marker显示范围</string>
+    <string name="desc_activity_show_markers">该示例主要用于向用户展示如何根据marker来调整最合适的地图显示范围。</string>
+
+
     <string name="title_activity_marker_cluster">点聚合</string>
     <string name="desc_activity_marker_cluster">该示例主要解决用户在地图上绘制大量标注点时，出现相互压盖、底图加载的卡顿的问题。</string>
 
@@ -51,4 +55,5 @@
     <string name="menu_title_massive">海量</string>
     <string name="menu_title_general">普通</string>
     <string name="menu_title_search">搜索</string>
+    <string name="menu_title_show_marker">调整</string>
 </resources>

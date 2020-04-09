@@ -64,9 +64,18 @@
             android:label="@string/title_activity_gesture"
             android:description="@string/desc_activity_gesture"
             android:parentActivityName=".MainActivity" />
-
         <activity
-            android:enabled="false"
+            android:name=".basic.ShowMarkersActivity"
+            android:description="@string/desc_activity_show_markers"
+            android:enabled="true"
+            android:label="@string/title_activity_show_markers"
+            android:parentActivityName=".main.BasicMapActivity">
+            <meta-data
+                android:name="ORDER"
+                android:value="3" />
+        </activity>
+        <activity
+            android:enabled="true"
             android:name=".basic.MarkerClusterActivity"
             android:label="@string/title_activity_marker_cluster"
             android:description="@string/desc_activity_marker_cluster"
@@ -98,6 +107,7 @@
 
         <activity
             android:name=".basic.SearchPOIActivity"
+            android:enabled="false"
             android:label="@string/title_activity_find_poi"
             android:description="@string/desc_activity_find_poi"
             android:parentActivityName=".main.BasicMapActivity">
