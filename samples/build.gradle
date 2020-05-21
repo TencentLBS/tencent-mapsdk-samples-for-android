@@ -16,7 +16,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        manifestPlaceholders = ["TencentMapSDK_KEY": "I5TBZ-G2A64-EI2UW-DQO3P-TCZKO-PAF37"]
+        manifestPlaceholders = ["TencentMapSDK_KEY":"mapsdkkey"]
     }
     buildTypes {
         release {
