@@ -11,15 +11,32 @@
     <string name="title_activity_route_track">轨迹处理</string>
     <string name="desc_activity_route_track">介绍路线和轨迹的操作</string>
 
+    <string name="title_activity_location">定位</string>
+    <string name="desc_activity_location">常见定位操作</string>
+
+    <string name="title_activity_location_marker_move">定位标跟随手机朝向移动</string>
+    <string name="desc_activity_location_marker_move">该示例展示了定位图标方向跟随手机指向转动的效果。</string>
+
+    <string name="title_activity_location_precision_circle">定位精度圈扩散效果</string>
+    <string name="desc_activity_location_precision_circle">该示例展示了在3D地图上如何实现定位圈向外扩展的动画效果。</string>
+
+    <string name="title_activity_mobile_geofencing">移动端地理围栏</string>
+    <string name="desc_activity_mobile_geofencing">该示例展示如何通过SDK运用并绘制地理围栏</string>
+
     <string name="title_activity_gesture">手势操作</string>
     <string name="desc_activity_gesture">基于手势操作的常规处理</string>
 
     <string name="title_activity_show_markers">适配marker显示范围</string>
     <string name="desc_activity_show_markers">该示例主要用于向用户展示如何根据marker来调整最合适的地图显示范围。</string>
 
+    <string name="title_activity_marker_amimation">Marker动画</string>
+    <string name="desc_activity_marker_animation">该示例向您展示Marker的一些常用动画效果</string>
 
     <string name="title_activity_marker_cluster">点聚合</string>
     <string name="desc_activity_marker_cluster">该示例主要解决用户在地图上绘制大量标注点时，出现相互压盖、底图加载的卡顿的问题。</string>
+
+    <string name="title_activity_hide_3D">隐藏3D楼宇效果</string>
+    <string name="desc_activity_hide_3D">该示例主要是用于向用户展示如何通过手势和俯仰角的判断，控制地图的3D楼块的隐藏与展示</string>
 
     <string name="title_activity_find_poi">地图选点</string>
     <string name="desc_activity_find_poi">检索屏幕中心点周边的特征POI，帮助用户快速、准确的确认位置。</string>
@@ -42,7 +59,7 @@
 
     <string name="menu_title_add">添加</string>
     <string name="menu_title_remove">移除</string>
-    <string name="menu_title_update">更新</string>
+    <string name="menu_title_update">切换地图中心点</string>
     <string name="menu_title_limit">限制</string>
     <string name="menu_title_fit_width">基于宽度限制</string>
     <string name="menu_title_fit_height">基于高度限制</string>
@@ -56,4 +73,5 @@
     <string name="menu_title_general">普通</string>
     <string name="menu_title_search">搜索</string>
     <string name="menu_title_show_marker">调整</string>
+    <string name="menu_title_marker_skip">上浮动画</string>
 </resources>

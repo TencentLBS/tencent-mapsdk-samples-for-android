@@ -17,6 +17,7 @@ import com.tencent.tencentmap.mapsdk.maps.model.LatLng;
 import com.tencent.tencentmap.mapsdk.maps.model.LatLngBounds;
 import com.tencent.tencentmap.mapsdk.maps.model.Marker;
 import com.tencent.tencentmap.mapsdk.maps.model.MarkerOptions;
+import com.tencent.tencentmap.mapsdk.maps.model.Polyline;
 import com.tencent.tencentmap.mapsdk.maps.model.PolylineOptions;
 
 import java.util.Arrays;
@@ -51,8 +52,25 @@ public class SmoothMoveActivity extends AbsMapActivity {
             mCarLatLngArray[i] = new LatLng(latitude, longitude);
         }
 
+        PolylineOptions polylineOptions = new PolylineOptions()
+                .add(mCarLatLngArray)
+                // 折线设置圆形线头
+                .lineCap(true)
+                // 折线的颜色
+                .color(PolylineOptions.Colors.GREEN)
+                // 折线宽度为25像素
+                .width(25)
+                // 必须打开这个开关，允许在线上绘制纹理
+                .arrow(true)
+                // 支持设置纹理的间距
+                .arrowSpacing(30)
+                // 设置纹理图片
+                .arrowTexture(
+                        BitmapDescriptorFactory
+                                .fromAsset("color_arrow_texture.png"));
+
         //添加小车路线
-        mMap.addPolyline(new PolylineOptions().add(mCarLatLngArray));
+        mMap.addPolyline(polylineOptions);
 
         //添加小车
         LatLng carLatLng = mCarLatLngArray[0];
@@ -64,7 +82,7 @@ public class SmoothMoveActivity extends AbsMapActivity {
                         .clockwise(false));
 
         //创建移动动画
-        mAnimator = new MarkerTranslateAnimator(mCarMarker, 50 * 1000, mCarLatLngArray, true);
+        mAnimator = new MarkerTranslateAnimator(mCarMarker, 50 * 100, mCarLatLngArray, true);
 
         //调整最佳视界
         mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(

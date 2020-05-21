@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".overlay.MarkerAnimationEffectActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:text="移动地图显示跳跃动画，右上角按钮展示上浮动画"
+        android:maxLines="2"
+        android:textColor="@color/colorPrimaryDark"/>
+
+    <fragment
+        android:id="@+id/fragment_map"
+        android:name="com.tencent.tencentmap.mapsdk.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

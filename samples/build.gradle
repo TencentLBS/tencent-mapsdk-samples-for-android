@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 
 Properties properties = new Properties()
-InputStream inputStream = project.rootProject.file('local.properties').newDataInputStream() ;
-properties.load( inputStream )
+InputStream inputStream = project.rootProject.file('local.properties').newDataInputStream();
+properties.load(inputStream)
 
 def mapsdkkey = properties.getProperty('mapsdk.key')
 
@@ -16,7 +16,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        manifestPlaceholders = ["TencentMapSDK_KEY": mapsdkkey]
+        manifestPlaceholders = ["TencentMapSDK_KEY": "I5TBZ-G2A64-EI2UW-DQO3P-TCZKO-PAF37"]
     }
     buildTypes {
         release {
@@ -38,9 +38,10 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
+    implementation 'pub.devrel:easypermissions:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
-    implementation 'com.tencent.map:tencent-map-vector-sdk:4.3.1'
-    implementation 'com.tencent.map.geolocation:TencentLocationSdk-openplatform:7.2.4'
+    implementation 'com.tencent.map:tencent-map-vector-sdk:4.3.2'
+    implementation 'com.tencent.map.geolocation:TencentLocationSdk-openplatform:7.2.6'
     implementation 'com.tencent.map:sdk-utilities:1.0.5'
 }

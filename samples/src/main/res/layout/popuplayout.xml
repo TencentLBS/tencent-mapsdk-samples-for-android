@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_beijing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="北京市" />
+
+    <Button
+        android:id="@+id/btn_shanghai"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="上海市" />
+
+    <Button
+        android:id="@+id/btn_guangzhou"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="广州市" />
+
+
+</LinearLayout>

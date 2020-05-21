@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Interpolator;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,7 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.tencent.lbssearch.TencentSearch;
+import com.tencent.lbssearch.httpresponse.BaseObject;
 import com.tencent.lbssearch.httpresponse.HttpResponseListener;
 import com.tencent.lbssearch.object.param.SearchParam;
 import com.tencent.lbssearch.object.param.SuggestionParam;
@@ -36,11 +38,14 @@ import com.tencent.map.sdk.samples.R;
 import com.tencent.map.sdk.samples.tools.location.TencentLocationHelper;
 import com.tencent.tencentmap.mapsdk.maps.CameraUpdateFactory;
 import com.tencent.tencentmap.mapsdk.maps.TencentMap;
+import com.tencent.tencentmap.mapsdk.maps.model.Animation;
 import com.tencent.tencentmap.mapsdk.maps.model.BitmapDescriptorFactory;
+import com.tencent.tencentmap.mapsdk.maps.model.CameraPosition;
 import com.tencent.tencentmap.mapsdk.maps.model.LatLng;
 import com.tencent.tencentmap.mapsdk.maps.model.Marker;
 import com.tencent.tencentmap.mapsdk.maps.model.MarkerOptions;
 import com.tencent.tencentmap.mapsdk.maps.model.MyLocationStyle;
+import com.tencent.tencentmap.mapsdk.maps.model.TranslateAnimation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +53,7 @@ import java.util.List;
 /**
  * 地图选点
  */
-public class SearchPOIActivity extends AbsMapActivity implements SearchView.OnQueryTextListener, SearchView.OnCloseListener, View.OnFocusChangeListener {
+public class SearchPOIActivity extends AbsMapActivity implements SearchView.OnQueryTextListener, SearchView.OnCloseListener, View.OnFocusChangeListener, TencentMap.OnCameraChangeListener {
 
     private TencentSearch mTencentSearch;
     private SearchView mSearchView;
@@ -69,6 +74,7 @@ public class SearchPOIActivity extends AbsMapActivity implements SearchView.OnQu
      */
     private boolean mIsUseSug = true;
     private Marker mMapCenterPointerMarker;
+    private LatLng mLatPosition;
 
     @Override
     protected int getLayoutId() {
@@ -89,6 +95,7 @@ public class SearchPOIActivity extends AbsMapActivity implements SearchView.OnQu
         mPoiInfos = new ArrayList<>();
         mSearchPoiAdapter.submitList(mPoiInfos);
         mRecyclerView.setAdapter(mSearchPoiAdapter);
+        mMap.setOnCameraChangeListener(this);
 
         //定位设置
         mTencentLocationHelper = new TencentLocationHelper(this);
@@ -202,12 +209,15 @@ public class SearchPOIActivity extends AbsMapActivity implements SearchView.OnQu
             @Override
             public void onSuccess(int pI, SearchResultObject pSearchResultObject) {
                 if (pSearchResultObject != null) {
+                    Log.i("TAG", "onScuess()" + "////");
+                    mRecyclerView.setVisibility(View.VISIBLE);
                     updateSearchPoiList(pSearchResultObject.data);
                 }
             }
 
             @Override
             public void onFailure(int pI, String pS, Throwable pThrowable) {
+                mRecyclerView.setVisibility(View.INVISIBLE);
                 Log.e("tencent-map-samples", pS, pThrowable);
             }
         });
@@ -234,12 +244,14 @@ public class SearchPOIActivity extends AbsMapActivity implements SearchView.OnQu
             @Override
             public void onSuccess(int pI, SuggestionResultObject pSuggestionResultObject) {
                 if (pSuggestionResultObject != null && mIsUseSug) {
+                    mRecyclerView.setVisibility(View.VISIBLE);
                     updateSuggestionPoiList(pSuggestionResultObject.data);
                 }
             }
 
             @Override
             public void onFailure(int pI, String pS, Throwable pThrowable) {
+                mRecyclerView.setVisibility(View.INVISIBLE);
                 Log.e("tencent-map-samples", pS, pThrowable);
             }
         });
@@ -338,7 +350,38 @@ public class SearchPOIActivity extends AbsMapActivity implements SearchView.OnQu
 
     @Override
     public void onFocusChange(View v, boolean hasFocus) {
-        mRecyclerView.setVisibility(hasFocus ? View.VISIBLE : View.INVISIBLE);
+        //mRecyclerView.setVisibility(hasFocus ? View.VISIBLE : View.INVISIBLE);
+    }
+
+    @Override
+    public void onCameraChange(CameraPosition cameraPosition) {
+    }
+
+    @Override
+    public void onCameraChangeFinished(CameraPosition cameraPosition) {
+        mLatPosition = new LatLng(cameraPosition.target.latitude, cameraPosition.target.longitude);
+        //获取当前地图中心点，请求搜索接口
+        SearchParam.Nearby nearby = new SearchParam.Nearby();
+        nearby.point(mLatPosition);
+        nearby.r(1000);
+        nearby.autoExtend(true);
+        SearchParam param = new SearchParam("北京", nearby);
+        if (mTencentSearch != null) {
+            mTencentSearch.search(param, new HttpResponseListener<SearchResultObject>() {
+                @Override
+                public void onSuccess(int i, SearchResultObject baseObject) {
+                    if (baseObject != null) {
+                        mRecyclerView.setVisibility(View.VISIBLE);
+                        updateSearchPoiList(baseObject.data);
+                    }
+                }
+
+                @Override
+                public void onFailure(int i, String s, Throwable throwable) {
+                    mRecyclerView.setVisibility(View.INVISIBLE);
+                }
+            });
+        }
     }
 
     private class PoiInfo {

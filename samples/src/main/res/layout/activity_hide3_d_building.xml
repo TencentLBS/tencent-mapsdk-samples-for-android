@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".overlay.Hide3DBuildingActivity">
+
+    <TextView
+        android:id="@+id/tv_hide_3d"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="3dp"
+        android:maxLines="3"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="16sp">
+
+    </TextView>
+
+    <fragment
+        android:id="@+id/fragment_map"
+        android:name="com.tencent.tencentmap.mapsdk.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
