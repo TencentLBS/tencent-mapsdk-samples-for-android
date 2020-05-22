@@ -29,6 +29,7 @@
     <string name="title_activity_show_markers">适配marker显示范围</string>
     <string name="desc_activity_show_markers">该示例主要用于向用户展示如何根据marker来调整最合适的地图显示范围。</string>
 
+
     <string name="title_activity_marker_amimation">Marker动画</string>
     <string name="desc_activity_marker_animation">该示例向您展示Marker的一些常用动画效果</string>
 
@@ -74,4 +75,5 @@
     <string name="menu_title_search">搜索</string>
     <string name="menu_title_show_marker">调整</string>
     <string name="menu_title_marker_skip">上浮动画</string>
+
 </resources>

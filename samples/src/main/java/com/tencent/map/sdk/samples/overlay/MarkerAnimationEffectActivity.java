@@ -3,6 +3,7 @@ package com.tencent.map.sdk.samples.overlay;
 import android.content.Context;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.animation.Interpolator;
@@ -42,7 +43,13 @@ public class MarkerAnimationEffectActivity extends AbsMapActivity implements Ten
         //移动地图
         mTencentMap.moveCamera(cameraSigma);
         mTencentMap.setOnCameraChangeListener(this);
-        addMarkerInScreenCenter(latLng);
+        //addMarkerInScreenCenter(latLng);
+        mTencentMap.setOnMapLoadedCallback(new TencentMap.OnMapLoadedCallback() {
+            @Override
+            public void onMapLoaded() {
+                addMarkerInScreenCenter(latLng);
+            }
+        });
     }
 
     private void addMarkerInScreenCenter(LatLng locationLatLng) {

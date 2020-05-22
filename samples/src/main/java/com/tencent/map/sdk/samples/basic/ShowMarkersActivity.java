@@ -54,34 +54,33 @@ public class ShowMarkersActivity extends AbsMapActivity {
 
     private void setupLocation() {
         latLngArrayList = new ArrayList<>();
-
-        LatLng latLng1 = new LatLng(39.90604, 116.32168);
+        LatLng latLng1 = new LatLng(39.90604,116.32168);
         latLngArrayList.add(latLng1);
-        LatLng latLng2 = new LatLng(39.993098, 116.336462);
+        LatLng latLng2 = new LatLng(39.993098,116.336462);
         latLngArrayList.add(latLng2);
-        LatLng latLng3 = new LatLng(39.8982, 116.37509);
+        LatLng latLng3 = new LatLng(39.8982,116.37509);
         latLngArrayList.add(latLng3);
-        LatLng latLng4 = new LatLng(39.934059, 116.451259);
+        LatLng latLng4 = new LatLng(39.934059,116.451259);
         latLngArrayList.add(latLng4);
-        LatLng latLng5 = new LatLng(39.954624, 116.32296);
+        LatLng latLng5 = new LatLng(39.954624,116.32296);
         latLngArrayList.add(latLng5);
-        LatLng latLng6 = new LatLng(39.941474, 116.416938);
+        LatLng latLng6 = new LatLng(39.941474,116.416938);
         latLngArrayList.add(latLng6);
-        LatLng latLng7 = new LatLng(39.947071, 116.371438);
+        LatLng latLng7 = new LatLng(39.947071,116.371438);
         latLngArrayList.add(latLng7);
-        LatLng latLng8 = new LatLng(39.911171, 116.411644);
+        LatLng latLng8 = new LatLng(39.911171,116.411644);
         latLngArrayList.add(latLng8);
-        LatLng latLng9 = new LatLng(39.975528, 116.490346);
+        LatLng latLng9 = new LatLng(39.975528,116.490346);
         latLngArrayList.add(latLng9);
-        LatLng latLng10 = new LatLng(39.84636, 116.37075);
+        LatLng latLng10 = new LatLng(39.84636,116.37075);
         latLngArrayList.add(latLng10);
-        LatLng latLng11 = new LatLng(39.889102, 116.35787);
+        LatLng latLng11 = new LatLng(39.889102,116.35787);
         latLngArrayList.add(latLng11);
-        LatLng latLng12 = new LatLng(39.959084, 116.288522);
+        LatLng latLng12 = new LatLng(39.959084,116.288522);
         latLngArrayList.add(latLng12);
-        LatLng latLng13 = new LatLng(39.884113, 116.455896);
+        LatLng latLng13 = new LatLng(39.884113,116.455896);
         latLngArrayList.add(latLng13);
-        LatLng latLng14 = new LatLng(39.889102, 116.35787);
+        LatLng latLng14 = new LatLng(39.889102,116.35787);
         latLngArrayList.add(latLng14);
 
 
@@ -98,12 +97,11 @@ public class ShowMarkersActivity extends AbsMapActivity {
             }
             LatLngBounds latLngBounds = new LatLngBounds.Builder().include(latLngArrayList).build();
             tencentMap.animateCamera(CameraUpdateFactory.newLatLngBounds(latLngBounds, 0));
-
         }
     }
 
     private void adjustMapRect() {
-        LatLng center = new LatLng(39.889102, 116.35787);
+        LatLng center = new LatLng(39.889102,116.35787);
         LatLngBounds latLngBounds = new LatLngBounds.Builder().include(latLngArrayList).build();
         tencentMap.animateCamera(CameraUpdateFactory.newLatLngBoundsWithMapCenter(
                 latLngBounds, center, 100));
