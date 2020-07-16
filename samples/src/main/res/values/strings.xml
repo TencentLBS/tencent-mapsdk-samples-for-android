@@ -33,6 +33,15 @@
     <string name="title_activity_marker_amimation">Marker动画</string>
     <string name="desc_activity_marker_animation">该示例向您展示Marker的一些常用动画效果</string>
 
+    <string name="title_activity_multiple_infowindow">多信息弹窗效果</string>
+    <string name="desc_activity_multiple_inforwindow">该示例主要展示如何在地图上展示多个信息窗体</string>
+
+    <string name="title_activity_marker_paddiing">Marker在padding的情况下显示在地图中心点</string>
+    <string name="desc_activity_marker_padding">该示例主要展示了Marker在padding的情况下显示在地图中心点</string>
+
+    <string name="title_activity_logistics">物流信息展示</string>
+    <string name="desc_activity_logistics">该示例展示了物流的简单应用场景</string>
+
     <string name="title_activity_marker_cluster">点聚合</string>
     <string name="desc_activity_marker_cluster">该示例主要解决用户在地图上绘制大量标注点时，出现相互压盖、底图加载的卡顿的问题。</string>
 
@@ -53,6 +62,9 @@
 
     <string name="title_activity_smooth_move">平滑移动</string>
     <string name="desc_activity_smooth_move">该示例主要是向开发者展示如何在地图上实现轨迹点的平滑移动效果。</string>
+
+    <string name="title_activity_track_upload">轨迹上传</string>
+    <string name="desc_activity_track_upload">该示例主要展示轨迹上传</string>
 
     <string name="title_activity_custom_gesture">自定义手势</string>
     <string name="desc_activity_custom_gesture">该示例主要展示如何创建自定义的手势并操作地图。</string>
@@ -75,5 +87,7 @@
     <string name="menu_title_search">搜索</string>
     <string name="menu_title_show_marker">调整</string>
     <string name="menu_title_marker_skip">上浮动画</string>
+    <string name="menu_title_car_roate">小车角度</string>
+    <string name="menu_title_track">调整地图视野</string>
 
 </resources>

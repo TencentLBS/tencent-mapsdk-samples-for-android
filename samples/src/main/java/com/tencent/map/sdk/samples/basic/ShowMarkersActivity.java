@@ -19,7 +19,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class ShowMarkersActivity extends AbsMapActivity {
-
     private TencentMap tencentMap;
     private ArrayList<LatLng> latLngArrayList;
 

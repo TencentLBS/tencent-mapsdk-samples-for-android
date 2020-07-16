@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.tencent.map.sdk.samples">
-    <!-- 访问网络，某些位置信息需要从网络服务器获取 -->
+
     <application
         android:allowBackup="true"
         android:description="@string/app_desc"
@@ -12,6 +12,30 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        <activity android:name=".track.TrackAcquisitionUploadActivity"
+            android:description="@string/desc_activity_track_upload"
+            android:enabled="true"
+            android:label="@string/title_activity_track_upload"
+            android:parentActivityName=".main.TrackActivity"></activity>
+        <activity
+            android:name=".overlay.LogisticsStateActivity"
+            android:description="@string/desc_activity_logistics"
+            android:enabled="true"
+            android:label="@string/title_activity_logistics"
+            android:parentActivityName=".main.OverlayActivity"></activity>
+<!--        <activity android:name=".main.TraceActivity" />-->
+        <activity
+            android:name=".overlay.MarkerPaddingActivity"
+            android:description="@string/desc_activity_marker_padding"
+            android:enabled="true"
+            android:label="@string/title_activity_marker_paddiing"
+            android:parentActivityName=".main.OverlayActivity" />
+        <activity
+            android:name=".overlay.MultipleInfowindowsActivity"
+            android:description="@string/desc_activity_multiple_inforwindow"
+            android:enabled="true"
+            android:label="@string/title_activity_multiple_infowindow"
+            android:parentActivityName=".main.OverlayActivity" />
         <activity
             android:name=".location.LocationMarkerMoveActivity"
             android:description="@string/desc_activity_location_marker_move"
@@ -181,18 +205,45 @@
 
         <meta-data
             android:name="TencentMapSDK"
-            android:value="mapsdkkey" />
-    </application> <!-- 访问WiFi状态，需要WiFi信息用于网络定位 I5TBZ-G2A64-EI2UW-DQO3P-TCZKO-PAF37-->
-    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" /> <!-- 修改WiFi状态，发起WiFi扫描, 需要WiFi信息用于网络定位 -->
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- 访问网络状态, 检测网络的可用性，需要网络运营商相关信息用于网络定位 -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 访问网络的变化, 需要某些信息用于网络定位 -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 访问手机当前状态, 需要某些信息用于网络定位 -->
+            android:value="您的key" />
+        <!-- 轨迹SDK所需类-->
+        <!-- 轨迹 sdk 内部的 Service 包含定位的封装和轨迹数据的上传功能 -->
+        <service
+            android:name="com.tencent.map.track.service.TencentTrackService"
+            android:exported="true" />
+        <!-- 轨迹 sdk 内部的 receiver，用于接收系统广播将 TencentTrackService 唤醒 -->
+        <receiver android:name="com.tencent.map.track.immortal.receiver.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.intent.action.PACKAGE_RESTARTED" />
+            </intent-filter>
+        </receiver>
+        <!-- 轨迹 sdk 内部的 jobscheduler 使用的 JobSerivce 用于检查 TencentTrackService 状态并在 TencentTrackService 被杀死后尝试重新唤起 -->
+        <service
+            android:name="com.tencent.map.track.immortal.service.TencentTrackJobService"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+    </application>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 轨迹SDK所需权限 -->
+    <!-- 轨迹数据的缓存需要 sd 卡读写 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 使用wakelock权限 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- android P 以上前台服务需要这个权限 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+
 
 </manifest>

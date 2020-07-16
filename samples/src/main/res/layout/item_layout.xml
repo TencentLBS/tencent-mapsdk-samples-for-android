@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="15dp"
-        android:paddingTop="30dp"
+        android:paddingTop="5dp"
         android:text="北京市"
         android:textSize="20sp" />
 
