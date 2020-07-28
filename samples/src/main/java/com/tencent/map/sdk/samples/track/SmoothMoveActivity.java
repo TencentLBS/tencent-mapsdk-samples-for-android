@@ -9,7 +9,6 @@ import androidx.annotation.Nullable;
 
 import com.tencent.map.sdk.samples.AbsMapActivity;
 import com.tencent.map.sdk.samples.R;
-import com.tencent.map.sdk.samples.tools.animator.MarkerTranslateAnimator;
 import com.tencent.tencentmap.mapsdk.maps.CameraUpdateFactory;
 import com.tencent.tencentmap.mapsdk.maps.TencentMap;
 import com.tencent.tencentmap.mapsdk.maps.model.BitmapDescriptorFactory;
@@ -17,8 +16,8 @@ import com.tencent.tencentmap.mapsdk.maps.model.LatLng;
 import com.tencent.tencentmap.mapsdk.maps.model.LatLngBounds;
 import com.tencent.tencentmap.mapsdk.maps.model.Marker;
 import com.tencent.tencentmap.mapsdk.maps.model.MarkerOptions;
-import com.tencent.tencentmap.mapsdk.maps.model.Polyline;
 import com.tencent.tencentmap.mapsdk.maps.model.PolylineOptions;
+import com.tencent.tencentmap.mapsdk.vector.utils.animation.MarkerTranslateAnimator;
 
 import java.util.Arrays;
 
